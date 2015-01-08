@@ -7,3 +7,4 @@
 * */
 
 alert("Testing to make sure it's connected");
+console.log("This is the console.");
