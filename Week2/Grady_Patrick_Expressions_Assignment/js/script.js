@@ -30,6 +30,6 @@ pay = 7.5 * 20 == 150
 
 Output:
 Total net pay for today is : $150
-    
+
 
 */
