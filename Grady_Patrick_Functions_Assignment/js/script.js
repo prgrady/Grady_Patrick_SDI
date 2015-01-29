@@ -15,6 +15,7 @@ Patrick Grady
  */
 
 var running = true;
+var playing = true;
 var numGuess = 1;
 var maxNum = 100;
 
@@ -45,7 +46,7 @@ function getUserNumber(n){
 
 function isRunning(pGuess, cNum, playerName, nGuess, running) {
     //find out if player guessed correctly
-    if (pGuess == cNum || pGuess == 0) {
+    if (pGuess == cNum) {
         //Got it right print a congrulatory message
         console.log("Congratulations, " + playerName + ".  My Number was: " + cNum + "!!!");
         console.log("You won in " + nGuess + " guesses!");
@@ -75,41 +76,58 @@ while (!nameIsOk(name)){
     name = prompt("Nothing was entered, please enter your name: ")
 }
 //There was a name so contunue
+do {
+    //start the player at first guess
+    numGuess = 1;
+    //have computer select a random number from 1 to 1000
+    var compNum = rand(1, function () {
+        //This anonymous gets the second value based on the player's option for difficulty
+        var dif = parseInt(prompt("Would you like easy(1), medium(2), or hard(3)"));
+        while ((dif != 1) && (dif != 2) && (dif != 3)) {
+            dif = parseInt(prompt("Please enter 1, 2 or 3"));
+        }
+        if (dif == 1) {
+            maxNum = 100
+            return maxNum;
+        } else if (dif == 2) {
+            maxNum = 1000;
+            return maxNum;
+        } else {
+            maxNum = 5000;
+            return maxNum;
+        }
 
-//have computer select a random number from 1 to 1000
-var compNum = rand(1, function(){
-    //This anonymous gets the second value based on the player's option for difficulty
-    var dif = parseInt(prompt("Would you like easy(1), medium(2), or hard(3)"));
-    while((dif != 1) && (dif != 2) && (dif != 3)){
-        dif = parseInt(prompt("Please enter 1, 2 or 3"));
+    }());
+
+    console.log("Hello, " + name + "!");
+    console.log("We are going to play a number guessing game!");
+    console.log("I will pick a number between 1 and " + maxNum);
+    console.log("Let's find out how many guesses it takes you to guess.")
+
+
+    do {
+
+        //get the player's guess
+        userGuess = getUserNumber(numGuess);
+        //Add one to the players guess total
+        numGuess += 1;
+
+
+        running = isRunning(userGuess, compNum, name, numGuess, running);
+        //Find out if the player wants to play again
+
+
+    //Only continue running if the player guessed wrong
+    } while (running)
+
+    //Playing again?
+    var wantToKeepPlaying = prompt("Would you like to play again? (yes /no)")
+    while (wantToKeepPlaying.toLowerCase()!="yes" && wantToKeepPlaying.toLowerCase()!="no" ){
+        wantToKeepPlaying = prompt("Please enter yes or no: ");
     }
-    if (dif == 1){
-        maxNum = 100
-        return maxNum;
-    } else if (dif == 2){
-        maxNum = 1000;
-        return maxNum;
-    } else {
-        maxNum = 5000;
-        return maxNum;
-    }
-
-}());
-
-console.log("Hello, " + name + "!");
-console.log("We are going to play a number guessing game!");
-console.log("I will pick a number between 1 and " + maxNum);
-console.log("Let's find out how many guesses it takes you to guess.")
-
-
-do{
-
-    //get the player's guess
-    userGuess = getUserNumber(numGuess);
-    //Add one to the players guess total
-    numGuess += 1;
-
-
-    running = isRunning(userGuess, compNum, name, numGuess, running);
-//Only continue running if the player guessed wrong
-}while(running)
+    if (wantToKeepPlaying == "no"){
+        // if it's no, then player wants to stop playing
+        playing = false;
+    } // otherwise the playing boolean stays true
+    running = true;
+}while (playing)
