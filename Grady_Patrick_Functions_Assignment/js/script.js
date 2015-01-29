@@ -62,14 +62,14 @@ function isRunning(pGuess, cNum, playerName, nGuess, running) {
     if (pGuess == cNum) {
         //Got it right print a congrulatory message
         console.log("Congratulations, " + playerName + ".  My Number was: " + cNum + "!!!");
-        console.log("You won in " + nGuess + " guesses!");
+        console.log("You won in " + (nGuess-1) + " guesses!");
         running = false;
     }
     // otherwise guess was wrong
     //increase number of player's guesses
     else {
         // is the computer's number higher
-        var higher = pGuess < cNum
+        var higher = pGuess < cNum;
         if (higher){
             console.log("My number is higher than " + pGuess);
         }
@@ -100,7 +100,7 @@ do {
             dif = parseInt(prompt("Please enter 1, 2 or 3"));
         }
         if (dif == 1) {
-            maxNum = 100
+            maxNum = 100;
             return maxNum;
         } else if (dif == 2) {
             maxNum = 1000;
@@ -115,7 +115,7 @@ do {
     console.log("Hello, " + name + "!");
     console.log("We are going to play a number guessing game!");
     console.log("I will pick a number between 1 and " + maxNum);
-    console.log("Let's find out how many guesses it takes you to guess.")
+    console.log("Let's find out how many guesses it takes you to guess.");
 
 
     do {
@@ -134,7 +134,7 @@ do {
     } while (running)
 
     //Playing again?
-    var wantToKeepPlaying = prompt("Would you like to play again? (yes /no)")
+    var wantToKeepPlaying = prompt("Would you like to play again? (yes /no)");
     while (wantToKeepPlaying.toLowerCase()!="yes" && wantToKeepPlaying.toLowerCase()!="no" ){
         wantToKeepPlaying = prompt("Please enter yes or no: ");
     }
