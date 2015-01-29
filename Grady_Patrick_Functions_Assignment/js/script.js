@@ -9,11 +9,22 @@ Patrick Grady
  c. 1  function  must  contain  3  parameters
  d. A  value  must  be  returned  for  each  function
  e. You  must  not  use “main  code” variable  inside  of  a  function,  you  must  pass  them
- in  as arguments.
+    in  as arguments.
  f. All  user  prompts  must  be  validated  using  a  while loop
 
 
- Adding extra features was more for fun than getting extra points, but I could use them
+ Adding extra features was more for fun than getting extra points
+ I do have a global variable in my anonymous function
+ only because I didn't know when to create an anymous except for then
+ But in fact I think all programs should start as annonymous to keep every variable
+ out of the global scope.  Using jquery or using:
+ window.onload = function(){}; etc., but that was way out of the scope of this class
+ But i could have done it that way, and that would create 0 global variables
+
+ Also, I am not a fan of using prompt, if I could have made an input box on the html page
+ This would have gone way easier.  I understand this is an intro to javascript and not HTML
+ That is why I did it this way.
+
  */
 
 var running = true;
