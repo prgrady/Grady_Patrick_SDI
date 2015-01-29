@@ -12,6 +12,8 @@ Patrick Grady
  in  as arguments.
  f. All  user  prompts  must  be  validated  using  a  while loop
 
+
+ Adding extra features was more for fun than getting extra points, but I could use them
  */
 
 var running = true;
@@ -131,3 +133,73 @@ do {
     } // otherwise the playing boolean stays true
     running = true;
 }while (playing)
+
+/*
+
+sample input:
+Patrick
+1
+50
+75
+83
+90
+95
+97
+yes
+3
+2500
+1250
+3250
+2000
+2500
+2250
+2375
+2450
+2475
+2460
+2465
+2467
+2469
+2470
+2473
+2472
+2471
+no
+
+
+sample output:
+ Hello, Patrick!
+ We are going to play a number guessing game!
+ I will pick a number between 1 and 100
+ Let's find out how many guesses it takes you to guess.
+ My number is higher than 50
+ My number is higher than 75
+ My number is higher than 83
+ My number is higher than 90
+ My number is higher than 95
+ Congratulations, Patrick.  My Number was: 97!!!
+ You won in 7 guesses!
+ Hello, Patrick!
+ We are going to play a number guessing game!
+ I will pick a number between 1 and 5000
+ Let's find out how many guesses it takes you to guess.
+ My number is lower than 2500
+ My number is higher than 1250
+ My number is lower than 3250
+ My number is higher than 2000
+ My number is lower than 2500
+ My number is higher than 2250
+ My number is higher than 2375
+ My number is higher than 2450
+ My number is lower than 2475
+ My number is higher than 2460
+ My number is higher than 2465
+ My number is higher than 2467
+ My number is higher than 2469
+ My number is higher than 2470
+ My number is lower than 2473
+ My number is lower than 2472
+ Congratulations, Patrick.  My Number was: 2471!!!
+ You won in 18 guesses!
+
+ */
